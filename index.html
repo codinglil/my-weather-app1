@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherApp</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Indie+Flower&family=Orelega+One&family=Paytone+One&family=Square+Peg&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>My Weather App</h1>
+      </div>
+      <br />
+      <div class="main">
+        <div class="row">
+          <div class="col-8">
+            <div class="search-area">
+              <form>
+                <input
+                  id="search-place"
+                  type="search"
+                  placeholder="Search your city..."
+                  autocomplete="off"
+                  autofocus="on"
+                />
+                <input type="submit" class="search-icon" value="🔍" />
+
+                <div class="temperature">
+                  <span class="f">⁰F</span>
+                  <span class="vertical">|</span>
+                  <span class="c">⁰C</span>
+                </div>
+              </form>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="current-day">
+              <h3 class="current-day-title">Today</h3>
+              <span class="current-emoji"> <img src="css/img/rain.gif" /></span
+              ><br />
+              <span class="current-date">Month day, time</span><br />
+              <span class="current-temperature" id="curr-temp">⁰C</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="chosen-city">
+        <h3 class="chosen-city-title">
+          📍
+          <span class="chosen-city-name" id="chosen-city-name-update"
+            ><em>City</em></span
+          >
+        </h3>
+        <br />
+        <p id="chosen-city-weather-description">
+          <i
+            ><span class="weather-description"><strong>Weather</strong></span>
+            in <strong class="city-change-name">this city</strong></i
+          >
+        </p>
+      </div>
+      <button class="myCity">Weather at your Location</button>
+
+      <div class="lower">
+        <div class="row">
+          <div class="col-lg-2 col-md-2 col-sm-4 col-12 col-weather-details">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">SUN</div>
+                <h3>🌦</h3>
+                <div class="other-temp">20⁰C</div>
+                <div class="other-date">4/24/22</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-4 col-12 col-weather-details">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">MON</div>
+                <h3>⛅</h3>
+                <div class="other-temp">24⁰C</div>
+                <div class="other-date">4/25/22</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-4 col-12 col-weather-details">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">TUE</div>
+                <h3>☀</h3>
+                <div class="other-temp">25⁰C</div>
+                <div class="other-date">4/26/22</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-4 col-12 col-weather-details">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">WED</div>
+                <h3>🌧</h3>
+                <div class="other-temp">27⁰C</div>
+                <div class="other-date">4/27/22</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-4 col-12 col-weather-details">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">THU</div>
+                <h3>⛅</h3>
+                <div class="other-temp">29⁰C</div>
+                <div class="other-date">4/28/22</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-md-2 col-sm-4 col-12 col-weather-details">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">FRI</div>
+                <h3>🌤</h3>
+                <div class="other-temp">31⁰C</div>
+                <div class="other-date">4/29/22</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <footer>Coded by Lilia Gashin</footer>
+      </div>
+    </div>
+    <script src="js/index.js"></script>
+  </body>
+</html>
