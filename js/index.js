@@ -25,6 +25,34 @@ function showTemp(response) {
   let weather = document.querySelector(".weather-description");
   console.log(weather);
   weather.innerHTML = `<strong>${description.toUpperCase()}</strong>`;
+
+  let imgIcon = document.querySelector("#current-img");
+  let icon = response.data.weather[0].icon;
+  console.log(icon);
+  if (icon === "01d") {
+    imgIcon.setAttribute(`src`, `img/sunny2.gif.webp`);
+  } else if (icon === "02d") {
+    imgIcon.setAttribute(`src`, `img/partly cloudy.webp`);
+  } else if (icon === "09d" || icon === "10d") {
+    imgIcon.setAttribute(`src`, `img/rain1.gif`);
+  } else if (icon === "11d") {
+    imgIcon.setAttribute(`src`, `img/thunder.gif`);
+  } else if (icon === "13d") {
+    imgIcon.setAttribute(`src`, `img/snow.gif`);
+  } else if (icon === "50d") {
+    imgIcon.setAttribute(`src`, `img/fog.gif`);
+  } else if (icon === "10d" && description === "light rain") {
+    imgIcon.setAttribute(`src`, `img/rainandsun.gif`);
+  } else if (icon === "03d" || icon === "04d") {
+    imgIcon.setAttribute(`src`, `img/cloudy.gif.webp`);
+  } else if (
+    icon === "01n" ||
+    icon === "02n" ||
+    icon === "03n" ||
+    icon === "04n"
+  ) {
+    imgIcon.setAttribute(`src`, `img/night.gif`);
+  }
 }
 //adding a button listener
 function getPosition(position) {
