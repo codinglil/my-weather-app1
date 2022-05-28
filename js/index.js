@@ -11,19 +11,18 @@ function searchCity(event) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity.value}&appid=d5ccd512023748fb33c1fa7c1f597470&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }
+
 let form = document.querySelector("form");
 form.addEventListener("submit", searchCity);
 
-//get temp
+//get temp based on the selected city
 function showTemp(response) {
   let temp = Math.round(response.data.main.temp);
   let currentTemp = document.querySelector("#curr-temp");
   currentTemp.innerHTML = `${temp}⁰C`;
 
   let description = response.data.weather[0].description;
-
   let weather = document.querySelector(".weather-description");
-  console.log(weather);
   weather.innerHTML = `<strong>${description.toUpperCase()}</strong>`;
 
   let imgIcon = document.querySelector("#current-img");
@@ -34,15 +33,13 @@ function showTemp(response) {
   } else if (icon === "02d") {
     imgIcon.setAttribute(`src`, `img/partly cloudy.webp`);
   } else if (icon === "09d" || icon === "10d") {
-    imgIcon.setAttribute(`src`, `img/rain1.gif`);
+    imgIcon.setAttribute(`src`, `img/rain.gif`);
   } else if (icon === "11d") {
     imgIcon.setAttribute(`src`, `img/thunder.gif`);
   } else if (icon === "13d") {
     imgIcon.setAttribute(`src`, `img/snow.gif`);
   } else if (icon === "50d") {
     imgIcon.setAttribute(`src`, `img/fog.gif`);
-  } else if (icon === "10d" && description === "light rain") {
-    imgIcon.setAttribute(`src`, `img/rainandsun.gif`);
   } else if (icon === "03d" || icon === "04d") {
     imgIcon.setAttribute(`src`, `img/cloudy.gif.webp`);
   } else if (
@@ -66,6 +63,7 @@ function getPosition(position) {
 let button = document.querySelector(".myCity");
 button.addEventListener("click", getPosition);
 
+//my location
 function showMyTemp(response) {
   let temp = Math.round(response.data.main.temp);
 
@@ -73,9 +71,34 @@ function showMyTemp(response) {
   myCurrentTemp.innerHTML = `${temp}⁰C`;
   let h3 = document.querySelector("#chosen-city-name-update");
   h3.innerHTML = response.data.name;
-  //h3.innerHTML = `It is ${temp}⁰C`;
+
   let p = document.querySelector("#chosen-city-weather-description");
   p.innerHTML = `<strong><i>${response.data.weather[0].description.toUpperCase()}</i></strong> at your location now.`;
+  let imgIcon = document.querySelector("#current-img");
+  let icon = response.data.weather[0].icon;
+  console.log(icon);
+  if (icon === "01d") {
+    imgIcon.setAttribute(`src`, `img/sunny2.gif.webp`);
+  } else if (icon === "02d") {
+    imgIcon.setAttribute(`src`, `img/partly cloudy.webp`);
+  } else if (icon === "09d" || icon === "10d") {
+    imgIcon.setAttribute(`src`, `img/rain.gif`);
+  } else if (icon === "11d") {
+    imgIcon.setAttribute(`src`, `img/thunder.gif`);
+  } else if (icon === "13d") {
+    imgIcon.setAttribute(`src`, `img/snow.gif`);
+  } else if (icon === "50d") {
+    imgIcon.setAttribute(`src`, `img/fog.gif`);
+  } else if (icon === "03d" || icon === "04d") {
+    imgIcon.setAttribute(`src`, `img/cloudy.gif.webp`);
+  } else if (
+    icon === "01n" ||
+    icon === "02n" ||
+    icon === "03n" ||
+    icon === "04n"
+  ) {
+    imgIcon.setAttribute(`src`, `img/night.gif`);
+  }
 }
 //2 degrees
 //  function changeToC(event) {
@@ -132,8 +155,13 @@ function displayTodayDate() {
   let month = months[currentDate.getMonth()];
   let day = currentDate.getDate();
   let hour = currentDate.getHours();
+  if (hour < 10) {
+    hour = `0${hour}`;
+  }
   let minutes = currentDate.getMinutes();
-
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let currentDateTitle = document.querySelector(".current-date");
   currentDateTitle.innerHTML = `${month} ${day}, ${hour}:${minutes}`;
 }
