@@ -34,11 +34,11 @@ function showTemp(response) {
     imgIcon.setAttribute(`src`, `img/partly cloudy.webp`);
   } else if (icon === "09d" || icon === "10d") {
     imgIcon.setAttribute(`src`, `img/rain.gif`);
-  } else if (icon === "11d") {
+  } else if (icon === "11d" || icon === "11n") {
     imgIcon.setAttribute(`src`, `img/thunder.gif`);
-  } else if (icon === "13d") {
+  } else if (icon === "13d" || icon === "13n") {
     imgIcon.setAttribute(`src`, `img/snow.gif`);
-  } else if (icon === "50d") {
+  } else if (icon === "50d" || icon === "50n") {
     imgIcon.setAttribute(`src`, `img/fog.gif`);
   } else if (icon === "03d" || icon === "04d") {
     imgIcon.setAttribute(`src`, `img/cloudy.gif.webp`);
@@ -46,7 +46,9 @@ function showTemp(response) {
     icon === "01n" ||
     icon === "02n" ||
     icon === "03n" ||
-    icon === "04n"
+    icon === "04n" ||
+    icon === "09n" ||
+    icon === "10n"
   ) {
     imgIcon.setAttribute(`src`, `img/night.gif`);
   }
@@ -83,11 +85,11 @@ function showMyTemp(response) {
     imgIcon.setAttribute(`src`, `img/partly cloudy.webp`);
   } else if (icon === "09d" || icon === "10d") {
     imgIcon.setAttribute(`src`, `img/rain.gif`);
-  } else if (icon === "11d") {
+  } else if (icon === "11d" || icon === "11n") {
     imgIcon.setAttribute(`src`, `img/thunder.gif`);
-  } else if (icon === "13d") {
+  } else if (icon === "13d" || icon === "13n") {
     imgIcon.setAttribute(`src`, `img/snow.gif`);
-  } else if (icon === "50d") {
+  } else if (icon === "50d" || icon === "50n") {
     imgIcon.setAttribute(`src`, `img/fog.gif`);
   } else if (icon === "03d" || icon === "04d") {
     imgIcon.setAttribute(`src`, `img/cloudy.gif.webp`);
@@ -95,7 +97,9 @@ function showMyTemp(response) {
     icon === "01n" ||
     icon === "02n" ||
     icon === "03n" ||
-    icon === "04n"
+    icon === "04n" ||
+    icon === "09n" ||
+    icon === "10n"
   ) {
     imgIcon.setAttribute(`src`, `img/night.gif`);
   }
