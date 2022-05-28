@@ -54,7 +54,7 @@ h1 {
 .f,
 .c {
   padding: 5px;
-  font-size: 32px;
+  font-size: 30px;
   font-weight: bold;
 }
 .f {
@@ -75,12 +75,12 @@ h1 {
 }
 .vertical {
   color: black;
-  font-size: 42px;
+  font-size: 36px;
 }
 
 .current-day {
   position: relative;
-  right: 25px;
+  right: 30px;
   background-color: rgb(227, 218, 218);
   border-radius: 90px;
   padding: 4px 4px;
@@ -97,7 +97,7 @@ h1 {
 
 img {
   background-color: inherit;
-  width: 95px;
+  width: 90px;
   border-radius: 75px;
 }
 .current-date {
