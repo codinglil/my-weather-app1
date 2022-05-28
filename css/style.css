@@ -54,7 +54,7 @@ h1 {
 .f,
 .c {
   padding: 5px;
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
 }
 .f {
@@ -62,7 +62,7 @@ h1 {
 }
 .f:hover {
   color: rgb(177, 12, 180);
-  font-size: 42px;
+  font-size: 34px;
   cursor: pointer;
 }
 .c {
@@ -70,7 +70,7 @@ h1 {
 }
 .c:hover {
   color: green;
-  font-size: 42px;
+  font-size: 34px;
   cursor: pointer;
 }
 .vertical {

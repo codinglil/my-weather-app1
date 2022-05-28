@@ -17,7 +17,8 @@ form.addEventListener("submit", searchCity);
 
 //get temp based on the selected city
 function showTemp(response) {
-  let temp = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  let temp = Math.round(celsiusTemp);
   let currentTemp = document.querySelector("#curr-temp");
   currentTemp.innerHTML = `${temp}⁰C`;
 
@@ -105,22 +106,25 @@ function showMyTemp(response) {
   }
 }
 //2 degrees
-//  function changeToC(event) {
-//  event.preventDefault();
-//  let currentTemp = document.querySelector("#curr-temp");
-//  currentTemp.innerHTML = ;
-//  }
-//  let clickC = document.querySelector(".c");
-//  clickC.addEventListener("click", changeToC);
 
-//  function changeToF(event) {
-//      event.preventDefault();
-//   let currentTemp = document.querySelector("#curr-temp");
-//  currentTemp.innerHTML = ;
-//  }
-//  let clickF = document.querySelector(".f");
-//  clickF.addEventListener("click", changeToF);
+function changeToF(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#curr-temp");
+  let fahrenheitTemp = (celsiusTemp * 9) / 5 + 32;
+  currentTemp.innerHTML = `${Math.round(fahrenheitTemp)}⁰F`;
+}
+let clickF = document.querySelector(".f");
+clickF.addEventListener("click", changeToF);
 
+function changeToC(event) {
+  event.preventDefault();
+  let currentTemp = document.querySelector("#curr-temp");
+  currentTemp.innerHTML = `${Math.round(celsiusTemp)}⁰C`;
+}
+let clickC = document.querySelector(".c");
+clickC.addEventListener("click", changeToC);
+
+let celsiusTemp = null;
 //3 date manipulation
 function displayDay() {
   let currentDay = new Date();
