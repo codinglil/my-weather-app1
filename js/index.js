@@ -68,10 +68,10 @@ button.addEventListener("click", getPosition);
 
 //my location
 function showMyTemp(response) {
-  let temp = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
 
   let myCurrentTemp = document.querySelector("#curr-temp");
-  myCurrentTemp.innerHTML = `${temp}⁰C`;
+  myCurrentTemp.innerHTML = `${Math.round(celsiusTemp)}⁰C`;
   let h3 = document.querySelector("#chosen-city-name-update");
   h3.innerHTML = response.data.name;
 
@@ -125,7 +125,8 @@ let clickC = document.querySelector(".c");
 clickC.addEventListener("click", changeToC);
 
 let celsiusTemp = null;
-//3 date manipulation
+
+//date manipulation
 function displayDay() {
   let currentDay = new Date();
   let days = [
