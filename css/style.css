@@ -60,6 +60,7 @@ h1 {
 }
 .f {
   color: rgb(203, 6, 6);
+  padding-right: 0;
 }
 .f:hover {
   color: rgb(177, 12, 180);
@@ -68,6 +69,7 @@ h1 {
 }
 .c {
   color: rgb(23, 23, 205);
+  padding-left: 0;
 }
 .c:hover {
   color: green;
@@ -98,7 +100,7 @@ h1 {
 
 img {
   background-color: inherit;
-  width: 90px;
+  width: 100px;
   border-radius: 75px;
 }
 .current-date {
