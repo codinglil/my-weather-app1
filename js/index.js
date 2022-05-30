@@ -5,8 +5,8 @@ function searchCity(event) {
 
   let h3 = document.querySelector("#chosen-city-name-update");
   h3.innerHTML = `${displayCity.value.toUpperCase()}`;
-  let p = document.querySelector(".city-change-name");
-  p.innerHTML = `${displayCity.value.toUpperCase()}`;
+  //let p = document.querySelector(".city-change-name");
+  //p.innerHTML = `${displayCity.value.toUpperCase()}`;
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity.value}&appid=d5ccd512023748fb33c1fa7c1f597470&units=metric`;
   axios.get(apiUrl).then(showTemp);
@@ -24,7 +24,9 @@ function showTemp(response) {
 
   let description = response.data.weather[0].description;
   let weather = document.querySelector(".weather-description");
-  weather.innerHTML = `<strong>${description.toUpperCase()}</strong>`;
+  weather.innerHTML = `${description.toUpperCase()}`;
+  let wind = document.querySelector("#km");
+  wind.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
 
   let imgIcon = document.querySelector("#current-img");
   let icon = response.data.weather[0].icon;
@@ -75,8 +77,11 @@ function showMyTemp(response) {
   let h3 = document.querySelector("#chosen-city-name-update");
   h3.innerHTML = response.data.name;
 
-  let p = document.querySelector("#chosen-city-weather-description");
-  p.innerHTML = `<strong><i>${response.data.weather[0].description.toUpperCase()}</i></strong> at your location now.`;
+  let weatherDescription = document.querySelector(".weather-description");
+  weatherDescription.innerHTML = `<i>${response.data.weather[0].description.toUpperCase()}</i>`;
+  let wind = document.querySelector("#km");
+  wind.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
+
   let imgIcon = document.querySelector("#current-img");
   let icon = response.data.weather[0].icon;
   console.log(icon);

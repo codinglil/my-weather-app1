@@ -122,8 +122,9 @@ img {
   display: inline-block;
   font-family: "Orelega One", cursive;
 }
-p {
-  display: inline-block;
+ul li {
+  display: block;
+  text-decoration: none;
 }
 
 .myCity {
