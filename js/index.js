@@ -30,7 +30,7 @@ function showTemp(response) {
 
   let imgIcon = document.querySelector("#current-img");
   let icon = response.data.weather[0].icon;
-  console.log(icon);
+
   if (icon === "01d") {
     imgIcon.setAttribute(`src`, `img/sunny2.gif.webp`);
   } else if (icon === "02d") {
@@ -55,6 +55,8 @@ function showTemp(response) {
   ) {
     imgIcon.setAttribute(`src`, `img/night.gif`);
   }
+
+  getForecast(response.data.coord);
 }
 //adding a button listener
 function getPosition(position) {
@@ -180,3 +182,50 @@ function displayTodayDate() {
   currentDateTitle.innerHTML = `${month} ${day}, ${hour}:${minutes}`;
 }
 displayTodayDate();
+
+//daily forecast
+
+function getForecast(coordinates) {
+  let apiKey = `d5ccd512023748fb33c1fa7c1f597470`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  console.log(forecast);
+
+  let forecastElement = document.querySelector(".lower");
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
+          <div class="col-lg-2 col-md-2 col-sm-4 col-12 col-weather-details">
+            <div class="card">
+              <div class="card-body">
+                <div class="card-title">${formatDay(forecastDay.dt)}</div>
+                <h3><img src="https://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png" id="weather-img" /></h3>
+                <div class="other-temp">${Math.round(
+                  forecastDay.temp.day
+                )}⁰</div>
+              </div>
+            </div>
+          </div>`;
+    }
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+
+  return days[day];
+}

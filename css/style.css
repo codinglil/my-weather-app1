@@ -171,7 +171,13 @@ ul li {
 }
 .card-body {
   padding: 5px;
+  text-align: center;
 }
+#weather-img {
+  position: relative;
+  width: 60px;
+}
+
 .card:hover {
   cursor: pointer;
   background-color: rgb(238, 206, 206);
@@ -182,15 +188,16 @@ ul li {
   text-align: center;
 }
 .other-temp {
-  color: rgb(203, 6, 6);
-  font-weight: 600;
+  color: rgb(23, 23, 205);
+  font-weight: 900;
   font-family: "Indie Flower", cursive;
+  text-align: center;
 }
-.other-date {
-  font-size: 12px;
-  color: black;
-  font-weight: 600;
+h3 img {
+  text-align: center;
+  margin: 0 auto;
 }
+
 .other-weather-desc {
   font-size: 12px;
 }
