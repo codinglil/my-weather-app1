@@ -5,8 +5,6 @@ function searchCity(event) {
 
   let h3 = document.querySelector("#chosen-city-name-update");
   h3.innerHTML = `${displayCity.value.toUpperCase()}`;
-  //let p = document.querySelector(".city-change-name");
-  //p.innerHTML = `${displayCity.value.toUpperCase()}`;
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity.value}&appid=d5ccd512023748fb33c1fa7c1f597470&units=metric`;
   axios.get(apiUrl).then(showTemp);
@@ -210,6 +208,7 @@ function displayForecast(response) {
                 <h3><img src="https://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
                 }@2x.png" id="weather-img" /></h3>
+                
                 <div class="other-temp">${Math.round(
                   forecastDay.temp.day
                 )}⁰</div>
