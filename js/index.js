@@ -15,6 +15,8 @@ form.addEventListener("submit", searchCity);
 
 //get temp based on the selected city
 function showTemp(response) {
+  document.querySelector("#chosen-city-name-update").innerHTML =
+    response.data.name;
   celsiusTemp = response.data.main.temp;
   let temp = Math.round(celsiusTemp);
   let currentTemp = document.querySelector("#curr-temp");
@@ -56,60 +58,22 @@ function showTemp(response) {
 
   getForecast(response.data.coord);
 }
-//adding a button listener
-function getPosition(position) {
-  navigator.geolocation.getCurrentPosition(getPosition);
+function searchPosition(position) {
   let lon = position.coords.longitude;
   let lat = position.coords.latitude;
 
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lon=${lon}&lat=${lat}&appid=d5ccd512023748fb33c1fa7c1f597470&units=metric`;
-  axios.get(apiUrl).then(showMyTemp);
+  axios.get(apiUrl).then(showTemp);
+}
+//adding a button listener
+function getPosition(event, position) {
+  event.preventDefault();
+
+  navigator.geolocation.getCurrentPosition(searchPosition);
 }
 let button = document.querySelector(".myCity");
 button.addEventListener("click", getPosition);
 
-//my location
-function showMyTemp(response) {
-  celsiusTemp = response.data.main.temp;
-
-  let myCurrentTemp = document.querySelector("#curr-temp");
-  myCurrentTemp.innerHTML = `${Math.round(celsiusTemp)}⁰C`;
-  let h3 = document.querySelector("#chosen-city-name-update");
-  h3.innerHTML = response.data.name;
-
-  let weatherDescription = document.querySelector(".weather-description");
-  weatherDescription.innerHTML = `<i>${response.data.weather[0].description.toUpperCase()}</i>`;
-  let wind = document.querySelector("#km");
-  wind.innerHTML = `${Math.round(response.data.wind.speed)} km/h`;
-
-  let imgIcon = document.querySelector("#current-img");
-  let icon = response.data.weather[0].icon;
-  console.log(icon);
-  if (icon === "01d") {
-    imgIcon.setAttribute(`src`, `img/sunny2.gif.webp`);
-  } else if (icon === "02d") {
-    imgIcon.setAttribute(`src`, `img/partly cloudy.webp`);
-  } else if (icon === "09d" || icon === "10d") {
-    imgIcon.setAttribute(`src`, `img/rain.gif`);
-  } else if (icon === "11d" || icon === "11n") {
-    imgIcon.setAttribute(`src`, `img/thunder.gif`);
-  } else if (icon === "13d" || icon === "13n") {
-    imgIcon.setAttribute(`src`, `img/snow.gif`);
-  } else if (icon === "50d" || icon === "50n") {
-    imgIcon.setAttribute(`src`, `img/fog.gif`);
-  } else if (icon === "03d" || icon === "04d") {
-    imgIcon.setAttribute(`src`, `img/cloudy.gif.webp`);
-  } else if (
-    icon === "01n" ||
-    icon === "02n" ||
-    icon === "03n" ||
-    icon === "04n" ||
-    icon === "09n" ||
-    icon === "10n"
-  ) {
-    imgIcon.setAttribute(`src`, `img/night.gif`);
-  }
-}
 //2 degrees
 
 function changeToF(event) {
