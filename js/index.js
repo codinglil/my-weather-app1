@@ -3,9 +3,6 @@ function searchCity(event) {
   event.preventDefault();
   let displayCity = document.querySelector("#search-place");
 
-  let h3 = document.querySelector("#chosen-city-name-update");
-  h3.innerHTML = `${displayCity.value.toUpperCase()}`;
-
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${displayCity.value}&appid=d5ccd512023748fb33c1fa7c1f597470&units=metric`;
   axios.get(apiUrl).then(showTemp);
 }

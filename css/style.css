@@ -51,7 +51,7 @@ h1 {
 }
 .temperature {
   display: inline-block;
-  font-family: "Indie Flower", cursive;
+  font-family: "Bubblegum Sans", cursive;
 }
 .f,
 .c {
@@ -109,7 +109,7 @@ img {
   font-weight: 600;
 }
 .current-temperature {
-  font-family: "Indie Flower", cursive;
+  font-family: "Bubblegum Sans", cursive;
   color: rgb(203, 6, 6);
   font-weight: bolder;
   font-size: large;
@@ -192,7 +192,7 @@ ul li {
 .other-temp {
   color: rgb(23, 23, 205);
   font-weight: bolder;
-  font-family: "Indie Flower", cursive;
+  font-family: "Bubblegum Sans", cursive;
   text-align: center;
 }
 h3 img {
